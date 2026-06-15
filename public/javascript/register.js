@@ -5,7 +5,7 @@ form.addEventListener("submit", async (event)=>{
     event.preventDefault()
     const data=new FormData(form)
     const synthesis={}
-    for (const key of data.entries()) synthesis[key[0]]=key[1]
+    for (const [key, value] of data.entries()) synthesis[key]=value
     const response=await fetch("http://localhost:3000/register/",{
         method:"POST",
         headers: {"Content-Type":"application/json"},

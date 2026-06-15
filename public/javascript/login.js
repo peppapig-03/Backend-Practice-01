@@ -1,13 +1,16 @@
 const body=document.body
 body.style.backgroundColor="yellow"
 const form=document.querySelector("form")
-form.addEventListener("submit", (event)=>{
+form.addEventListener("submit", async (event)=>{
     event.preventDefault()
     const data=new FormData(form)
-    for (const key of data.entries()) console.log(key)
-    form.reset()
-    /**await fetch("http://localhost:3000/login/",{
+    const synthesis={}
+    for (const [key, value] of data.entries()) synthesis[key]=value
+    const response=await fetch("http://localhost:3000/login/",{
         method:"POST",
-        body: JSON.stringify({ username: data})
-    })**/
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify({ username: synthesis["login_username"], password: synthesis["login_password"]})
+    })
+    const resp=await response.json()
+    alert(resp.message)
 })

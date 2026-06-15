@@ -22,7 +22,7 @@ const registerController=(function(){
     const postNewAcc=async function(req,res){
         const newString=userServices.convertUser(req.body.username)
         try{
-            if (await userServices.validateUser(newString)==false) return res.status(400).json({status:400, message:newString==""?"Invalid Username":"Username is Already in Use"})
+            if (await userServices.userExists(newString)==true) return res.status(400).json({status:400, message:newString==""?"Invalid Username":"Username is Already in Use"})
             else if (userServices.validatePassword(req.body.password)==false) return res.status(400).json({status:400, message:"Invalid Password"})
             else {
                 await userServices.postUser(newString, req.body.password)

@@ -7,10 +7,10 @@ const service=(function(){
         }
         return string.toLowerCase()
     }
-    const validateUser=async function(username){
+    const userExists=async function(username){
         if (username=="") return false
         const data=await userPool.query("SELECT * FROM users WHERE username=$1",[username])
-        return data.rows==0
+        return data.rowCount!=0
     }
     const validatePassword=function(password){
         return password!=""
@@ -18,11 +18,16 @@ const service=(function(){
     const postUser=async function(username, password){
         await userPool.query("INSERT INTO users (username, password) VALUES ($1,$2)", [username, password])
     }
+    const checkPassword=async function(username, password){
+        const data=await userPool.query("SELECT * FROM users WHERE username=$1 AND password=$2",[username, password])
+        return data.rowCount!=0
+    }
     return {
         convertUser,
-        validateUser,
+        userExists,
         validatePassword,
-        postUser
+        postUser,
+        checkPassword
     }
 })()
 export default service
