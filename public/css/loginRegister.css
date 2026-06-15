@@ -1,0 +1,45 @@
+body{
+    background-color:orange;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-around;
+    padding:0px;
+    margin:0px;
+    height:100dvh
+}
+.navbar{
+    background-color:orange;
+    display:flex;
+    justify-content:center
+}
+#loginForm, #registerForm{
+    display:flex;
+    flex-grow:1;
+    flex-direction: column;
+    align-items:center;
+    margin:20px;
+    gap:20px;
+}
+.submit{
+    background-color:lightskyblue;
+    border-width: 0px;
+    height:40px;
+    aspect-ratio:2;
+    border-radius:20px;
+}
+.footer{
+    background-color:orange;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:15dvh;
+    padding:20px
+}
+.nextPage{
+    height:80%;
+    aspect-ratio:3;
+    background-color:lightblue;
+    font-size: 3dvh;
+    border:none;
+    border-radius:30px
+}
