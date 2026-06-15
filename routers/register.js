@@ -1,23 +1,7 @@
 import express from "express"
+import cont from "../controllers/registerController.js"
 const router=express.Router()
 
-router.get("/", (req,res)=>{
-    res.render("loginRegister", 
-        {stylesheet:"css/loginRegister.css", 
-        staticJS:"javascript/login.js", 
-        title:"Register",
-        h1Title: "Register Page",
-        formID:"registerForm",
-        ID:"register_username",
-        input1_label:"Username: ",
-        input1_placeholder:"username...",
-        PW:"register_password",
-        input2_label:"Password: ",
-        input2_placeholder:"password...",
-        submit:"Submit",
-        redirect:"login",
-        nextPage:"Login Account"
-    })
-})
-
+router.get("/", (req,res)=>cont.renderRegister(req,res))
+router.post("/", async (req,res)=> await cont.postNewAcc(req,res))
 export default router

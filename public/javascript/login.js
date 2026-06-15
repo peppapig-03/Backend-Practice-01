@@ -6,4 +6,8 @@ form.addEventListener("submit", (event)=>{
     const data=new FormData(form)
     for (const key of data.entries()) console.log(key)
     form.reset()
+    /**await fetch("http://localhost:3000/login/",{
+        method:"POST",
+        body: JSON.stringify({ username: data})
+    })**/
 })
