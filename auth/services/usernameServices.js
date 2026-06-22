@@ -1,4 +1,4 @@
-import userPool from "../../database/pool.js"
+import usersRepo from "../repositories/usersRepo.js"
 const service=(function(){
     const convertUser=function(string){
         while (string.includes(" ")){
@@ -9,18 +9,20 @@ const service=(function(){
     }
     const userExists=async function(username){
         if (username=="") return false
-        const data=await userPool.query("SELECT * FROM users WHERE username=$1",[username])
-        return data.rowCount!=0
+        const data=await usersRepo.getUser(username)
+        return data.length!=0
     }
     const validatePassword=function(password){
         return password!=""
     }
     const postUser=async function(username, password){
-        await userPool.query("INSERT INTO users (username, password) VALUES ($1,$2)", [username, password])
+        await usersRepo.postUser(username,password)
     }
     const checkPassword=async function(username, password){
-        const data=await userPool.query("SELECT * FROM users WHERE username=$1 AND password=$2",[username, password])
-        return data.rowCount!=0
+        const data=await usersRepo.getUser(username)
+        if (data.length==0) return false
+        if (data[0]["password"]!=password) return false
+        return true
     }
     return {
         convertUser,

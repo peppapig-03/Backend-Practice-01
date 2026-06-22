@@ -23,9 +23,8 @@ const loginController=(function(){
         const password=req.body.password
         if (newString=="") return res.status(400).json({status:400, message:"Invalid Username"})
         try{
-            if (await userService.userExists(newString)==false) return res.status(400).json({status:400, message:"Username does not Exist"})
-            if (await userService.checkPassword(newString, password)==false) return res.status(400).json({status:400, message:"Wrong Password"})
-            return res.json({message:"Login Success"})
+            if (await userService.checkPassword(newString, password)==false) return res.status(400).json({status:400, message:"Wrong Login Credential(s)"})
+                return res.json({message:"Login Success"})
         } catch(error){
             return res.status(500).json({status:500, message:"Internal Server Error"})
         }
