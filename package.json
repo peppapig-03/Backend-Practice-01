@@ -1,20 +1,27 @@
 {
-  "name": "repos",
+  "name": "backend-practice-01",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "nodemon"
+    "test": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peppapig-03/Backend-Practice-01.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
+  "bugs": {
+    "url": "https://github.com/peppapig-03/Backend-Practice-01/issues"
+  },
+  "homepage": "https://github.com/peppapig-03/Backend-Practice-01#readme",
   "dependencies": {
-    "dotenv": "^17.4.2",
     "ejs": "^6.0.1",
     "express": "^5.2.1",
     "nodemon": "^3.1.14",
-    "pg": "^8.21.0"
+    "pg": "^8.22.0"
   }
 }

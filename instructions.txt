@@ -1,0 +1,5 @@
+sudo systemctl start postgresql
+psql -U khaisiang -h localhost
+
+to show tables:
+\dt

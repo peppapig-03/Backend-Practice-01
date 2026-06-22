@@ -1,6 +1,7 @@
 import {Pool} from "pg"
-import dotenv from "dotenv"
-dotenv.config()
+import path from "path"
+import url from "url"
+process.loadEnvFile(path.join(path.dirname(url.fileURLToPath(import.meta.url)), "..", ".env"))
 const pool= new Pool({
     host:process.env.dbHost,
     port:process.env.dbPort,

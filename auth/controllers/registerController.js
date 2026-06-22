@@ -1,5 +1,5 @@
-import pool from "../repositories/usersRepository.js"
 import userServices from "../services/usernameServices.js"
+
 const registerController=(function(){
     const renderRegister=function(req,res){
         res.render("loginRegister", {

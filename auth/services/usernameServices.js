@@ -1,4 +1,4 @@
-import userPool from "../repositories/usersRepository.js"
+import userPool from "../../database/pool.js"
 const service=(function(){
     const convertUser=function(string){
         while (string.includes(" ")){
