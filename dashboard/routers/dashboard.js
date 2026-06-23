@@ -1,7 +1,11 @@
 import express from "express"
-import cont from "../controllers/loginController.js"
+import cont from "../controllers/dashboardController.js"
+import authVer from "../../middleware/authVerification.js"
+import dashboardController from "../controllers/dashboardController.js"
+import parsing from "../../middleware/parsing.js"
 const router=express.Router()
+router.use(parsing.cookieParser)
+router.use(authVer.validSession)
+router.get("/", dashboardController.renderDashboard)
 
-router.get("/", (req,res)=>cont.renderLogin(req,res))
-router.post("/", (req,res)=>cont.postLogin(req,res))
 export default router

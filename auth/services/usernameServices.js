@@ -20,9 +20,9 @@ const service=(function(){
     }
     const checkPassword=async function(username, password){
         const data=await usersRepo.getUser(username)
-        if (data.length==0) return false
-        if (data[0]["password"]!=password) return false
-        return true
+        if (data.length==0) return {ok:false}
+        if (data[0]["password"]!=password) return {ok:false}
+        return {ok:true,id:data[0]["user_id"]}
     }
     return {
         convertUser,

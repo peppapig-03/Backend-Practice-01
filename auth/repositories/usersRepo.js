@@ -4,11 +4,16 @@ const repo=(function(){
         const data=await pool.query("SELECT * FROM users WHERE username=$1",[username])
         return data.rows
     }
+    const getUsername=async function(userid){
+        const data=await pool.query("SELECT * FROM users WHERE user_id=$1",[userid])
+        return data.rows
+    }
     const postUser=async function(username, password){
         await pool.query("INSERT INTO users(username, password) VALUES($1,$2)",[username, password])
     }
     return {
         getUser,
+        getUsername,
         postUser
     }
 })()
