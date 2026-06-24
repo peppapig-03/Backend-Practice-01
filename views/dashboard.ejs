@@ -2,6 +2,11 @@
 <html lang="en">
 <%- include('partial/head.ejs') %>
 <body>
-    
+    <div class="projectBoxHolder">
+    <% for (const project of projects){ %>
+        <%-include('partial/projectBox.ejs',{"project": project})%>
+    <%}%>
+    </div>
+    <%-include('partial/newTodoForm.ejs')%>
 </body>
 </html>

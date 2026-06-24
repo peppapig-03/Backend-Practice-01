@@ -7,9 +7,13 @@ const projectRepo=(function(){
     const postProject=async function(userid,projectname){
         await pool.query('INSERT INTO projects(project_name,user_id) VALUES($1,$2)',[projectname,userid])
     }
+    const deleteProject=async function(projectid){
+        await pool.query(`DELETE FROM projects WHERE project_id=$1`,[projectid])
+    }
     return {
         getAllProjects,
-        postProject
+        postProject,
+        deleteProject
     }
 })()
 export default projectRepo

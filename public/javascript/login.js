@@ -1,5 +1,3 @@
-const body=document.body
-body.style.backgroundColor="yellow"
 const form=document.querySelector("form")
 form.addEventListener("submit", async (event)=>{
     event.preventDefault()
@@ -11,6 +9,8 @@ form.addEventListener("submit", async (event)=>{
         headers: {"Content-Type":"application/json"},
         body: JSON.stringify({ username: synthesis["login_username"], password: synthesis["login_password"]})
     })
-    const resp=await response.json()
-    alert(resp.message)
+    const synth=await response.json()
+    if (synth.redirect){window.location.href="http://localhost:3000/dashboard"}
+    else {alert(synth.message)}
+    
 })

@@ -1,0 +1,14 @@
+<div class="projectBox" data-project-id='<%= project.project_id%>'>
+    <h1><%= project.project_name %></h1>
+    <div class="newTodoButtonBox">
+        <button class="newTodoButton">New Todo</button>
+    </div>
+    <div class="deleteProjectButtonBox">
+        <button class="deleteProjectButton">Delete Project</button>
+    </div>
+    <div class="todoBoxHolder">
+    <% for (const todoitem of project.todoitems){%>
+        <%- include('todoBox.ejs',{"todoitem":todoitem}) %>
+    <%}%>
+    </div>
+</div>

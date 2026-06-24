@@ -4,7 +4,6 @@ import path from "path"
 import url from "url"
 import loginRouter from "./auth/routers/login.js"
 import registerRouter from "./auth/routers/register.js"
-import rep from "./dashboard/repositories/todoRepo.js"
 import dashboardRouter from "./dashboard/routers/dashboard.js"
 const app=express()
 app.set("view engine", "ejs")

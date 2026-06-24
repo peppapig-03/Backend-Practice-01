@@ -1,0 +1,64 @@
+body{
+    background-color:lightgreen;
+    
+}
+.projectBoxHolder{
+    display:flex;
+    flex-direction: column;
+    align-items:flex-start;
+    padding:50px;
+    gap:30px;
+}
+.projectBox{
+    display:grid;
+    grid-template-rows: 2fr 1fr;
+    grid-template-columns: 3fr 1fr 1fr;
+    padding:20px;
+    padding-top:0px;
+    width:100%;
+    row-gap: 30px;
+    border-width:2px;
+    border-color:blue;
+    border-radius:30px;
+    border-style: solid;
+    background-color: beige;
+}
+.todoBoxHolder{
+    grid-area:2/1/3/4;
+    display:flex;
+    gap:30px;
+}
+.todoBox{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+}
+.newTodoButtonBox{
+    grid-area:1/2/2/3;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+}
+.deleteProjectButtonBox{
+    grid-area:1/3/2/4;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.newTodoButton, .deleteProjectButton{
+    width:60%;
+    height:50px;
+    border-radius:20px;
+    border-width:1px;
+    background-color: lightblue;
+}
+.deleteTodoButton{
+    background-color:lightblue;
+    border-width: 1px;
+    border-radius:10px;
+}
+#newTodoForm{
+    background-color: beige;
+    height:60%
+}

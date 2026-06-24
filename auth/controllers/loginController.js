@@ -34,9 +34,9 @@ const loginController=(function(){
                 secure:true,
                 sameSite:'lax'
             })
-            return res.status(302).json({redirect:"/dashboard"})
+            return res.status(302).json({ok:true, redirect:"/dashboard"})
         } catch(error){
-            return res.status(500).json({status:500, message:"Internal Server Error"})
+            return res.status(500).json({ok:false, status:500, message:"Internal Server Error"})
         }
     }
     return {

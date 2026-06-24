@@ -14,9 +14,15 @@ const cookieService=(function(){
         if (data[0]["expiry"]<currentTime){await cookiesRepo.deleteCookie(cookie);return {ok:false, message:"Timeout",status:408}}
         return {ok:true,data:data[0]["user_id"]}
     }
+    const verifyProject=async function(cookie,projectid){
+        const data=await cookiesRepo.getCookieProject(cookie,projectid)
+        if (data.length==0) return {ok:false, message:"Unauthorised to access", status:401}
+        return {ok: true, message:"Authorised"}
+    }
     return {
         createSessionCookie,
-        verifySessionCookie
+        verifySessionCookie,
+        verifyProject
     }
 })()
 export default cookieService

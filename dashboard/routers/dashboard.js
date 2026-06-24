@@ -7,5 +7,6 @@ const router=express.Router()
 router.use(parsing.cookieParser)
 router.use(authVer.validSession)
 router.get("/", dashboardController.renderDashboard)
-
+router.delete("/delete/project/:projectid",authVer.authProject,dashboardController.deleteProject)
+router.post("/new/todoitem/:projectid", authVer.authProject,dashboardController.postTodo)
 export default router
